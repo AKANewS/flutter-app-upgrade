@@ -14,7 +14,7 @@ dependencies:
 dependencies:
   flutter_app_upgrade:
     git:
-        url: https://gitee.com/lunhuixin/flutter-app-upgrade
+        url: https://github.com/Lu-Lucifer/flutter-app-upgrade
         ref: master
 ```
 
