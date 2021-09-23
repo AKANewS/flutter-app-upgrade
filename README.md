@@ -9,14 +9,6 @@
 dependencies:
   flutter_app_upgrade: ^1.1.0
 ```
-或者
-```
-dependencies:
-  flutter_app_upgrade:
-    git:
-        url: https://github.com/Lu-Lucifer/flutter-app-upgrade
-        ref: master
-```
 
 2、执行flutter命令获取包：
 ```

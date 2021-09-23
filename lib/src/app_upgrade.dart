@@ -67,27 +67,24 @@ class AppUpgrade {
     DownloadStatusChangeCallback? downloadStatusChange,
   }) {
     future.then((AppUpgradeInfo appUpgradeInfo) {
-      if (appUpgradeInfo != null && appUpgradeInfo.title != null) {
-        _showUpgradeDialog(
-            context, appUpgradeInfo.title, appUpgradeInfo.contents,
-            apkDownloadUrl: appUpgradeInfo.apkDownloadUrl,
-            force: appUpgradeInfo.force,
-            titleStyle: titleStyle,
-            contentStyle: contentStyle,
-            cancelText: cancelText,
-            cancelTextStyle: cancelTextStyle,
-            okBackgroundColors: okBackgroundColors,
-            okText: okText,
-            okTextStyle: okTextStyle,
-            borderRadius: borderRadius,
-            progressBarColor: progressBarColor,
-            iosAppId: iosAppId,
-            appMarketInfo: appMarketInfo,
-            onCancel: onCancel,
-            onOk: onOk,
-            downloadProgress: downloadProgress,
-            downloadStatusChange: downloadStatusChange);
-      }
+      _showUpgradeDialog(context, appUpgradeInfo.title, appUpgradeInfo.contents,
+          apkDownloadUrl: appUpgradeInfo.apkDownloadUrl,
+          force: appUpgradeInfo.force,
+          titleStyle: titleStyle,
+          contentStyle: contentStyle,
+          cancelText: cancelText,
+          cancelTextStyle: cancelTextStyle,
+          okBackgroundColors: okBackgroundColors,
+          okText: okText,
+          okTextStyle: okTextStyle,
+          borderRadius: borderRadius,
+          progressBarColor: progressBarColor,
+          iosAppId: iosAppId,
+          appMarketInfo: appMarketInfo,
+          onCancel: onCancel,
+          onOk: onOk,
+          downloadProgress: downloadProgress,
+          downloadStatusChange: downloadStatusChange);
     }).catchError((onError) {
       print('$onError');
     });
@@ -203,4 +200,5 @@ typedef DownloadProgressCallback = Function(int count, int total);
 ///
 /// 下载状态变化回调
 ///
-typedef DownloadStatusChangeCallback = Function(DownloadStatus downloadStatus, {dynamic error});
+typedef DownloadStatusChangeCallback = Function(DownloadStatus downloadStatus,
+    {dynamic error});
