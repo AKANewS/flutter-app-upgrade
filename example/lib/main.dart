@@ -44,7 +44,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  AppInfo _appInfo;
+  AppInfo? _appInfo;
   List<AppMarketInfo> _appMarketList = [];
   String _installMarkets = '';
 
@@ -77,6 +77,27 @@ class _HomeState extends State<Home> {
         print('status:$status,error:$error');
       },
     );
+  }
+
+  ///自定义界面
+  _checkAppUpgrade2() {
+    AppUpgrade.appUpgrade(context, _checkAppInfo(),
+        iosAppId: 'id88888888',
+        downloadProgress: (count, total) {
+          print('count:$count,total:$total');
+        },
+        downloadStatusChange: (DownloadStatus status, {dynamic error}) {
+          print('status:$status,error:$error');
+        },
+        dialogBuilder: (onOk) => MaterialButton(
+              onPressed: onOk,
+              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 2),
+              color: Colors.blueAccent,
+              child: Text("升级",
+                  style: const TextStyle(color: Colors.white, fontSize: 16)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+            ));
   }
 
   Future<AppUpgradeInfo> _checkAppInfo() async {
