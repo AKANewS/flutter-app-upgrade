@@ -55,7 +55,7 @@ public class FlutterAppUpgradePlugin : FlutterPlugin, MethodCallHandler, Activit
 
   }
 
-  override fun onMethodCall(@NotNull call: MethodCall, @NotNull result: Result) {
+  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     if (call.method == "getAppInfo") {
       getAppInfo(mContext, result)
     } else if (call.method == "getApkDownloadPath") {
